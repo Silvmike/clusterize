@@ -1,0 +1,7 @@
+[submodule "docker-nginx-sticky"]
+	path = docker-nginx-sticky
+	url = https://github.com/Silvmike/docker-nginx-sticky.git
+	branch = master
+[submodule "tomcat-docker"]
+	path = tomcat-docker
+	url = https://github.com/Silvmike/tomcat-docker
