@@ -11,4 +11,4 @@ For more information see branches.
 
 [Replication via DeltaManager (nginx as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/replication-delta)
 
-
+[Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/persistent-postgresql)
