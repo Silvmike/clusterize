@@ -14,3 +14,5 @@ For more information see branches.
 [Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/persistent-postgresql)
 
 [Session replication using Hazelcast distributed map in P2P mode (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast)
+
+[Session replication using Hazelcast distributed map in Client-Server mode (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast-cs)
