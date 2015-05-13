@@ -23,6 +23,8 @@ For more information see branches.
 
 **Important thing**
 
+According to [documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html):
+
 	Parallel deployment is a function of the Context Container. The Context element represents a web application, which in turn specifies the context path to a particular Web Application Archive (WAR) file that is the application logic. Parallel deployment allows you to deploy multiple versions of a web application with the same context path concurrently. When choosing what version of the application for any given request, Tomcat will:
 
 	Route new requests to the latest version, so new sessions go to the new application.
