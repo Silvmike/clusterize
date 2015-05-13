@@ -32,3 +32,6 @@ Parallel deployment is a function of the Context Container. The Context element 
 2. If session information is in the request, check the session manager for a matching version, so existing sessions will go to the original application for the request.
 
 3. If session information is in the request, but the corresponding application is no longer present, **it will route to the latest version**.
+
+
+**NOTE:** It actually means that if one of your nodes fails before new version of your application is deployed to all of instances, there is a chance that this new session being replicated to failover node, will cause crashes and undesirable behaviours.
