@@ -9,6 +9,8 @@ For more information see branches.
 
 [Replication via MemcachedBackupManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-backup-memcached)
 
+[Replication via MemcachedBackupManager (mod_jk as a balancer, hybrid mod_jk+tomcat container)](https://github.com/Silvmike/clusterize/tree/replication-memcached-hybrid-node)
+
 [Replication via DeltaManager (nginx as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/replication-delta)
 
 [Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/persistent-postgresql)
