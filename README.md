@@ -1,20 +1,5 @@
-# clusterize
-Sandbox for clusterzation
-
-**Important thing to know**
-
-According to [documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment):
-
-Parallel deployment is a function of the Context Container. The Context element represents a web application, which in turn specifies the context path to a particular Web Application Archive (WAR) file that is the application logic. Parallel deployment allows you to deploy multiple versions of a web application with the same context path concurrently. When choosing what version of the application for any given request, Tomcat will:
-
-1. Route new requests to the latest version, so new sessions go to the new application.
-
-2. If session information is in the request, check the session manager for a matching version, so existing sessions will go to the original application for the request.
-
-3. If session information is in the request, but the corresponding application is no longer present, **it will route to the latest version**.
-
-
-**NOTE:** It actually means that if one of your nodes fails before new version of your application is deployed to all of instances, there is a chance that this new session being replicated to failover node, will cause crashes and undesirable behaviours.
+# Clusterize
+A sandbox for clusterzation
 
 ## BackupManager
 
@@ -92,3 +77,24 @@ Sticky Session with a persistence manager and a JDBC-based store, which is alrea
 
 For more information see branches.
 Enjoy.
+
+
+
+
+
+
+## Important thing to know
+
+According to [documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment):
+
+Parallel deployment is a function of the Context Container. The Context element represents a web application, which in turn specifies the context path to a particular Web Application Archive (WAR) file that is the application logic. Parallel deployment allows you to deploy multiple versions of a web application with the same context path concurrently. When choosing what version of the application for any given request, Tomcat will:
+
+1. Route new requests to the latest version, so new sessions go to the new application.
+
+2. If session information is in the request, check the session manager for a matching version, so existing sessions will go to the original application for the request.
+
+3. If session information is in the request, but the corresponding application is no longer present, **it will route to the latest version**.
+
+
+**NOTE:** It actually means that if one of your nodes fails before new version of your application is deployed to all of instances, there is a chance that this new session being replicated to failover node, will cause crashes and undesirable behaviours.
+
