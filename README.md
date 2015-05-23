@@ -7,6 +7,28 @@ According to [documentation](https://tomcat.apache.org/tomcat-7.0-doc/cluster-ho
 
 This manager only replicates the session data to one backup node, and only to nodes that have the application deployed. Downside of the BackupManager: not quite as battle tested as the delta manager.
 
+Important:
+
+* Sessions have a primary node and a backup node
+* Need to use sticky sessions
+* Backup node selected on a round-robin basis from all other nodes. So, **there is NOT a single backup node**
+* Every node knows the primary node and backup node for every
+session
+* Network traffic proportional to the number of nodes
+* Failover is more complicated
+
+Use case:
+
+Suppose we've got a cluster of 4 nodes: A, B, C, D. And suppose that node D fails.
+Assume, out user makes new request, and his request comes to one of alive nodes:
+
+1. Sessions will be distribtued to other nodes as soon as node failure is detected
+
+2. There are 2 cases:
+
+ * If new node was backup node, it becomes primary, and a new backup node is selected, session is replicated to new backup node.
+ * If new node wasn't backup it becomes primary, backup node remains the same, session is copied from the backup node.
+
 This solution offers a guaranteed session data replication.
 
 [Replication via BackupManager (nginx as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/replication-backup)
