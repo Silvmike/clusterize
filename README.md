@@ -105,9 +105,9 @@ Enjoy.
 
 
 
-## Important thing to know
+## Important things to know
 
-According to [documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment):
+#### 1. According to [documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment):
 
 Parallel deployment is a function of the Context Container. The Context element represents a web application, which in turn specifies the context path to a particular Web Application Archive (WAR) file that is the application logic. Parallel deployment allows you to deploy multiple versions of a web application with the same context path concurrently. When choosing what version of the application for any given request, Tomcat will:
 
@@ -120,3 +120,11 @@ Parallel deployment is a function of the Context Container. The Context element 
 
 **NOTE:** It actually means that if one of your nodes fails before new version of your application is deployed to all of instances, there is a chance that this new session being replicated to failover node, will cause crashes and undesirable behaviours.
 
+#### 2. Static membership is also allowed
+
+* For more information see [this](https://tomcat.apache.org/tomcat-7.0-doc/config/cluster-interceptor.html#Static_Membership). Configuration example can be found [here](https://github.com/Silvmike/clusterize/tree/replication-delta-static)
+
+* Multicast messaging isn't required for SimpleTcpCluster:
+
+  - Multicast isn't used when replicating sessions. It is used only for dynamic membership. For more information see [this](https://tomcat.apache.org/tomcat-7.0-doc/tribes/introduction.html#Feature%20Overview)
+  - BTW, it is possible to use multicast for [messaging](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/tribes/Channel.html#SEND_OPTIONS_MULTICAST)
