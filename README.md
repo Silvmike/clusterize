@@ -128,3 +128,12 @@ Parallel deployment is a function of the Context Container. The Context element 
 
   - Multicast isn't used when replicating sessions. It is used only for dynamic membership. For more information see [this](https://tomcat.apache.org/tomcat-7.0-doc/tribes/introduction.html#Feature%20Overview)
   - BTW, it is possible to use multicast for [messaging](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/tribes/Channel.html#SEND_OPTIONS_MULTICAST)
+
+#### 3. Using *memcached-session-manager* be aware of that it depends on load balancer in *sticky*-mode. So it is possible to get inconsistent session data.
+
+* For more details have a look at:
+
+  - [this](https://github.com/magro/memcached-session-manager/blob/master/core/src/main/java/de/javakaffee/web/msm/MemcachedSessionService.java#L627-L630)
+  - and [this](https://github.com/magro/memcached-session-manager/blob/master/core/src/main/java/de/javakaffee/web/msm/MemcachedSessionService.java#L725-L794)
+
+* Use AJP Connector based load balancer
