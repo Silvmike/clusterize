@@ -137,3 +137,5 @@ Parallel deployment is a function of the Context Container. The Context element 
   - and [this](https://github.com/magro/memcached-session-manager/blob/master/core/src/main/java/de/javakaffee/web/msm/MemcachedSessionService.java#L725-L794)
 
 * Use AJP Connector based load balancer
+
+[![Analytics](https://ga-beacon.appspot.com/UA-73781306-2/welcome-page)](https://github.com/igrigorik/ga-beacon)
