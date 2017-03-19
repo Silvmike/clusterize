@@ -35,4 +35,3 @@ services:
     - tomcat-3:node03.hardcoders.ru
     ports:
      - 8080:8080
-    hostname: 'tomcat-3'
