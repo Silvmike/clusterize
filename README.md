@@ -75,8 +75,6 @@ DeltaManager enables all-to-all session deltas replication. By all-to-all we mea
 
 This solution offers a guaranteed session data replication.
 
-**P.S.** *By a lot of Tomcat nodes we mean >30-40*
-
 [Replication via DeltaManager (nginx as a balancer, farm deployer, dynamic membership)](https://github.com/Silvmike/clusterize/tree/replication-delta)
 
 [Replication via DeltaManager (nginx as a balancer, farm deployer, static membership)](https://github.com/Silvmike/clusterize/tree/replication-delta-static)
