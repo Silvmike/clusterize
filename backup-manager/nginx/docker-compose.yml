@@ -1,0 +1,31 @@
+version: '2'
+services:
+  tomcat-1:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+    ports:
+     - 8081:8080
+    hostname: 'tomcat-1'
+  tomcat-2:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+    ports:
+     - 8082:8080
+    hostname: 'tomcat-2'
+  tomcat-3:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+    ports:
+     - 8083:8080
+    hostname: 'tomcat-3'
+  nginx:
+    build: nginx/.
+    links:
+    - tomcat-1:node01.hardcoders.ru
+    - tomcat-2:node02.hardcoders.ru
+    - tomcat-3:node03.hardcoders.ru
+    ports:
+     - 8080:8080

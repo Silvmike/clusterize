@@ -33,7 +33,7 @@ Assume, out user makes new request, and his request comes to one of alive nodes:
 
 This solution offers a guaranteed session data replication.
 
-[Replication via BackupManager (nginx as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/replication-backup)
+[Replication via BackupManager (nginx as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/master/backup-manager/nginx)
 
 [Replication via BackupManager (mod_jk as a balancer, farm deployer)](https://github.com/Silvmike/clusterize/tree/master/backup-manager/httpd)
 
