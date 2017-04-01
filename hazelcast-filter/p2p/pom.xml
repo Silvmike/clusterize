@@ -1,0 +1,23 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ru.hardcoders</groupId>
+  <artifactId>hazelcast-tomcat</artifactId>
+  <version>1</version>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.hazelcast</groupId>
+      <artifactId>hazelcast-wm</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+ 
+    <dependency>
+      <groupId>com.hazelcast</groupId>
+      <artifactId>hazelcast-client</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+
+  </dependencies>
+
+</project>

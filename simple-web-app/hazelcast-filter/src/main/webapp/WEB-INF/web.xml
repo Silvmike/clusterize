@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <session-config>  <!--  10 minutes -->
+        <session-timeout>10</session-timeout>
+    </session-config>
+
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>ru.hardcoders.simple.TestServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>hazelcast-filter</filter-name>
+        <filter-class>com.hazelcast.web.WebFilter</filter-class>
+        <!--
+          Name of the distributed map storing
+          your web session objects
+        -->
+        <init-param>
+            <param-name>map-name</param-name>
+            <param-value>tomcat-sessions</param-value>
+        </init-param>
+        <!--
+          TTL value of the distributed map storing
+          your web session objects.
+          Any integer between 0 and Integer.MAX_VALUE.
+          Default is 0 which is infinite.
+        -->
+        <init-param>
+            <param-name>session-ttl-seconds</param-name>
+            <param-value>60</param-value>
+        </init-param>
+        <!--
+          How is your load-balancer configured?
+          sticky-session means all requests of a session
+          is routed to the node where the session is first created.
+          This is excellent for performance.
+          If sticky-session is set to false, when a session is updated
+          on a node, entry for this session on all other nodes is invalidated.
+          You have to know how your load-balancer is configured before
+          setting this parameter. Default is true.
+        -->
+        <init-param>
+            <param-name>sticky-session</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--
+          Name of session id cookie
+        -->
+        <init-param>
+            <param-name>cookie-name</param-name>
+            <param-value>hazelcast.sessionId</param-value>
+        </init-param>
+        <!--
+          Domain of session id cookie. Default is based on incoming request.
+        -->
+        <!--init-param>
+          <param-name>cookie-domain</param-name>
+          <param-value>.mywebsite.com</param-value>
+        </init-param-->
+        <!--
+          Should cookie only be sent using a secure protocol? Default is false.
+        -->
+        <init-param>
+            <param-name>cookie-secure</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <!--
+          Should HttpOnly attribute be set on cookie ? Default is false.
+        -->
+        <init-param>
+            <param-name>cookie-http-only</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--
+          Are you debugging? Default is false.
+        -->
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--
+          Configuration xml location;
+            * as servlet resource OR
+            * as classpath resource OR
+            * as URL
+          Default is one of hazelcast-default.xml
+          or hazelcast.xml in classpath.
+        -->
+        <init-param>
+            <param-name>config-location</param-name>
+            <param-value>hazelcast.xml</param-value>
+        </init-param>
+        <!--
+          Do you want to use an existing HazelcastInstance?
+          Default is null.
+        -->
+        <init-param>
+            <param-name>instance-name</param-name>
+            <param-value>default</param-value>
+        </init-param>
+        <!--
+          Do you want to connect as a client to an existing cluster?
+          Default is false.
+        -->
+        <init-param>
+            <param-name>use-client</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <!--
+          Client configuration location;
+            * as servlet resource OR
+            * as classpath resource OR
+            * as URL
+          Default is null.
+        -->
+        <!--init-param>
+          <param-name>client-config-location</param-name>
+          <param-value>/WEB-INF/hazelcast-client.properties</param-value>
+        </init-param-->
+        <!--
+          Do you want to shutdown HazelcastInstance during
+          web application undeploy process?
+          Default is true.
+        -->
+        <init-param>
+            <param-name>shutdown-on-destroy</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--
+          Do you want to cache sessions locally in each instance?
+          Default is false.
+        -->
+        <init-param>
+            <param-name>deferred-write</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>hazelcast-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.hazelcast.web.SessionListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>ru.hardcoders.simple.SessionInvalidator</listener-class>
+    </listener>
+
+    <distributable/>
+
+</web-app>

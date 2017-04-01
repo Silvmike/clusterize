@@ -85,7 +85,7 @@ Sticky Session with a persistence manager and a JDBC-based store, which is alrea
 
 ## Hazelcast session replication using filter approach
 
-[Session replication using Hazelcast distributed map in P2P mode (filter approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast)
+[Session replication using Hazelcast distributed map in P2P mode (filter approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/master/hazelcast-filter/p2p)
 
 [Session replication using Hazelcast distributed map in Client-Server mode (filter approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast-cs)
 
