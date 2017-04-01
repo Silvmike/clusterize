@@ -19,8 +19,6 @@
 
     <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" />
 
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-
     <Engine name="Catalina" defaultHost="hardcoders.ru">
 
       <Realm className="org.apache.catalina.realm.LockOutRealm">
@@ -37,10 +35,9 @@
       <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
                  channelSendOptions="4"><!-- SEND_OPTIONS_SYNCHRONIZED_ACK -->
 
-          <Manager className="org.apache.catalina.ha.session.BackupManager"
+          <Manager className="org.apache.catalina.ha.session.DeltaManager"
                    expireSessionsOnShutdown="false"
-                   notifyListenersOnReplication="true"
-                   mapSendOptions="4"/><!-- SEND_OPTIONS_SYNCHRONIZED_ACK -->
+                   notifyListenersOnReplication="true"/>
 
           <Channel className="org.apache.catalina.tribes.group.GroupChannel">
             <Membership className="org.apache.catalina.tribes.membership.McastService"
@@ -64,17 +61,16 @@
 
           <Valve className="org.apache.catalina.ha.tcp.ReplicationValve"
                  filter=""/>
-
           <Valve className="org.apache.catalina.ha.session.JvmRouteBinderValve"/>
 
-          <Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
+           <Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
                     tempDir="temp"
                     deployDir="webapps"
                     watchDir="/usr/share/webapps"
                     watchEnabled="true"/>
 
-          <ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/>
-          <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
+          <ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener" />
+          <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener" />
       </Cluster>
 
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"

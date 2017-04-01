@@ -75,9 +75,9 @@ DeltaManager enables all-to-all session deltas replication. By all-to-all we mea
 
 This solution offers a guaranteed session data replication.
 
-[Replication via DeltaManager (nginx as a balancer, farm deployer, dynamic membership)](https://github.com/Silvmike/clusterize/tree/replication-delta)
+[Replication via DeltaManager (nginx as a balancer, farm deployer, dynamic membership)](https://github.com/Silvmike/clusterize/tree/master/delta-manager/dynamic-membership)
 
-[Replication via DeltaManager (nginx as a balancer, farm deployer, static membership)](https://github.com/Silvmike/clusterize/tree/replication-delta-static)
+[Replication via DeltaManager (nginx as a balancer, farm deployer, static membership)](https://github.com/Silvmike/clusterize/tree/master/delta-manager/static-membership)
 
 ## Persistent Manager with JDBC Store
 

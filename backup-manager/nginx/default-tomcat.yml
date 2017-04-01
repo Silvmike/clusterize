@@ -4,4 +4,4 @@ services:
     image: tomcat:7-jre8-alpine
     volumes:
     - ./tomcat/conf:/usr/local/tomcat/conf:ro
-    - ./webapps:/usr/share/webapps:ro
+    - ../../webapps:/usr/share/webapps:ro

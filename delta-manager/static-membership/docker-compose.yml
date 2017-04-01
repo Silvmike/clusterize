@@ -4,6 +4,8 @@ services:
     extends:
       file: default-tomcat.yml
       service: default-tomcat
+    volumes:
+    - ./tomcat/conf.1:/usr/local/tomcat/conf:ro
     ports:
      - 8081:8080
     hostname: 'tomcat-1'
@@ -11,6 +13,8 @@ services:
     extends:
       file: default-tomcat.yml
       service: default-tomcat
+    volumes:
+    - ./tomcat/conf.2:/usr/local/tomcat/conf:ro
     ports:
      - 8082:8080
     hostname: 'tomcat-2'
@@ -18,6 +22,8 @@ services:
     extends:
       file: default-tomcat.yml
       service: default-tomcat
+    volumes:
+    - ./tomcat/conf.3:/usr/local/tomcat/conf:ro
     ports:
      - 8083:8080
     hostname: 'tomcat-3'
