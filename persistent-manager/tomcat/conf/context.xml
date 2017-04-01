@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <Resource name="jdbc/sessions" 
+              auth="Container" 
+              type="javax.sql.DataSource"
+              username="tomcat"
+              password="tomcat"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://postgres-1:5432/tomcat"
+              maxActive="20"
+              maxIdle="10"
+              validationQuery="select 1" />
+
+    <Manager className="org.apache.catalina.session.PersistentManager"
+             distributable="true"  
+             processExpiresFrequency="3" 
+             maxIdleBackup="1"
+             maxIdleSwap="5"
+             minIdleSwap="-1"
+             saveOnRestart="true" >
+
+        <Store className="org.apache.catalina.session.JDBCStore"
+               dataSourceName="jdbc/sessions"
+               sessionTable="tomcat_sessions"
+               sessionIdCol="session_id"
+               sessionAppCol="app_name"
+               sessionDataCol="session_data"
+               sessionLastAccessedCol="last_access"
+               sessionMaxInactiveCol="max_inactive"
+               sessionValidCol="valid_session" />
+
+    </Manager>
+
+</Context>

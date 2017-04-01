@@ -81,7 +81,7 @@ This solution offers a guaranteed session data replication.
 
 Sticky Session with a persistence manager and a JDBC-based store, which is already built into Tomcat. The idea is to stored session data thus in the event of a failure the session data can be retrieved. Using a shared store all the Tomcat instances has access to the session data. However **Tomcat will not guarantee when a sessions data will be persisted** to the store, thus you could have a case where a Tomcat instance crashes but the session data was not written to the store.
 
-[Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/persistent-postgresql)
+[Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/master/persistent-manager)
 
 ## Hazelcast session replication using filter approach
 
