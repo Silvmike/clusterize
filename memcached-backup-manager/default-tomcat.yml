@@ -1,0 +1,8 @@
+version: '2'
+services:
+  default-tomcat:
+    image: tomcat:7-jre8-alpine
+    volumes:
+    - ./tomcat/conf:/usr/local/tomcat/conf
+    - ../webapps:/usr/local/tomcat/webapps
+    - ./tomcat/lib:/usr/share/tomcat-lib:ro

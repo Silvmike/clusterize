@@ -1,0 +1,55 @@
+version: '2'
+services:
+  memcached-1:
+    image: memcached:alpine
+    ports:
+     - 11211:11211
+    hostname: memcached-1
+  memcached-2:
+    image: memcached:alpine
+    ports:
+     - 11212:11211
+    hostname: memcached-2
+  memcached-3:
+    image: memcached:alpine
+    ports:
+     - 11213:11211
+    hostname: memcached-3
+  tomcat-1:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+#    environment:
+#     - "CATALINA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=65535,suspend=n"
+    ports:
+     - 8081:8080
+#     - 65533:65535
+    hostname: 'tomcat-1'
+  tomcat-2:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+#    environment:
+#     - "CATALINA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=65535,suspend=n"
+    ports:
+     - 8082:8080
+#     - 65534:65535 
+    hostname: 'tomcat-2'
+  tomcat-3:
+    extends:
+      file: default-tomcat.yml
+      service: default-tomcat
+#    environment:
+#     - "CATALINA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=65535,suspend=n"
+    ports:
+     - 8083:8080
+#     - 65535:65535
+    hostname: 'tomcat-3'
+  nginx:
+    build: ../images/nginx
+    links:
+    - tomcat-1:node01.hardcoders.ru
+    - tomcat-2:node02.hardcoders.ru
+    - tomcat-3:node03.hardcoders.ru
+    ports:
+     - 8080:8080

@@ -63,9 +63,7 @@ DeltaManager/BackupManager use java serialization, memcached-session-manager com
 
 When a new session is created the memcached-session-manager **selects the memcached node randomly**.
 
-[Replication via MemcachedBackupManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-backup-memcached)
-
-[Replication via MemcachedBackupManager (mod_jk as a balancer, hybrid mod_jk+tomcat container)](https://github.com/Silvmike/clusterize/tree/replication-memcached-hybrid-node)
+[Replication via MemcachedBackupManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/master/memcached-backup-manager)
 
 ## DeltaManager
 
