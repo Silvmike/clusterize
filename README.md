@@ -113,9 +113,4 @@ Parallel deployment is a function of the Context Container. The Context element 
 
 #### 3. Using *memcached-session-manager* be aware of that it depends on load balancer in *sticky*-mode. So it is possible to get inconsistent session data.
 
-* For more details have a look at:
-
-  - [this](https://github.com/magro/memcached-session-manager/blob/master/core/src/main/java/de/javakaffee/web/msm/MemcachedSessionService.java#L627-L630)
-  - and [this](https://github.com/magro/memcached-session-manager/blob/master/core/src/main/java/de/javakaffee/web/msm/MemcachedSessionService.java#L725-L794)
-
 * Use AJP Connector based load balancer
