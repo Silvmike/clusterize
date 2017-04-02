@@ -83,25 +83,9 @@ Sticky Session with a persistence manager and a JDBC-based store, which is alrea
 
 [Session passivation using PersistentManager (nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/master/persistent-manager)
 
-## Hazelcast session replication using filter approach
-
-[Session replication using Hazelcast distributed map in P2P mode (filter approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/master/hazelcast-filter/p2p)
-
-[Session replication using Hazelcast distributed map in Client-Server mode (filter approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast-cs)
-
 ## Hazelcast Session Manager
 
-[Session replication using Hazelcast distributed map in P2P mode (session manager approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast-tomcat)
-
-[Session replication using Hazelcast distributed map in Client-Server mode (session manager approach, nginx as a balancer)](https://github.com/Silvmike/clusterize/tree/replication-nginx-hazelcast-cs-tomcat)
-
-For more information see branches.
-Enjoy.
-
-
-
-
-
+Information about session clustering using Hazelcast can be found [here](https://hazelcast.com/use-cases/web-session-clustering/)
 
 ## Important things to know
 

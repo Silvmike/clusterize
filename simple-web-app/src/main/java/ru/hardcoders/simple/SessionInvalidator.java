@@ -18,7 +18,6 @@ public class SessionInvalidator implements ServletContextListener {
 
     private static final long TIMEOUT = TimeUnit.SECONDS.toMillis(60);
     public static final long START_TIME = System.currentTimeMillis();
-
     public static final String INSTANCE_NAME;
 
     static {
